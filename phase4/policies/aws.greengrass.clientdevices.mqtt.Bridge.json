@@ -1,0 +1,19 @@
+{
+    "mqtt5RouteOptions": {
+        "toIoTCore": {
+            "noLocal": true
+        }
+    },
+    "mqttTopicMapping": {
+        "ClientIotCoreMapping": {
+            "topic": "clients/1232752380-IoTThing",
+            "source": "LocalMqtt",
+            "target": "IotCore"
+        },
+        "ClientPubSubMapping": {
+            "topic": "clients/1232752380-IoTThing",
+            "source": "LocalMqtt",
+            "target": "Pubsub"
+        }
+    }
+}

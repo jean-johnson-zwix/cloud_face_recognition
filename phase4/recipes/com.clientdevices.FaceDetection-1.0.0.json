@@ -1,0 +1,42 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.clientdevices.FaceDetection",
+  "ComponentVersion": "1.0.0",
+  "ComponentDescription": "Face Detection component.",
+  "ComponentPublisher": "Amazon",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "accessControl": {
+        "aws.greengrass.ipc.mqttproxy": {
+          "com.clientdevices.FaceDetection:mqttproxy:1": {
+        "policyDescription": "Allows FaceDetection component to subscribe to IoT Core topic",
+        "operations": [
+          "aws.greengrass#SubscribeToIoTCore"
+        ],
+        "resources": [
+          "clients/1232752380-IoTThing"
+        ]
+      }
+    }
+      }
+    }
+  },
+  "Manifests": [
+    {
+      "Platform": {
+        "os": "linux"
+      },
+      "Artifacts":[
+        {
+            "URI":"greengrass:fd_component.py"
+        },
+        {
+            "URI":"greengrass:facenet_pytorch"
+        }
+    ],
+      "Lifecycle": {
+        "run": "python3 -u {artifacts:path}/fd_component.py"
+      }
+    }
+  ]
+}

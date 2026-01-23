@@ -1,0 +1,42 @@
+{
+  "deviceGroups": {
+    "formatVersion": "2021-03-05",
+    "definitions": {
+      "MyDeviceGroup": {
+        "selectionRule": "thingName: 1232752380-IoTThing*",
+        "policyName": "ClientDeviceAuthPolicy"
+      }
+    },
+    "policies": {
+      "ClientDeviceAuthPolicy": {
+        "AllowConnect": {
+          "statementDescription": "Allow client devices to connect.",
+          "operations": [
+            "mqtt:connect"
+          ],
+          "resources": [
+            "*"
+          ]
+        },
+        "AllowPublish": {
+          "statementDescription": "Allow client devices to publish on any topic.",
+          "operations": [
+            "mqtt:publish"
+          ],
+          "resources": [
+            "*"
+          ]
+        },
+        "AllowSubscribe": {
+          "statementDescription": "Allow client devices to subscribe to any topic.",
+          "operations": [
+            "mqtt:subscribe"
+          ],
+          "resources": [
+            "*"
+          ]
+        }
+      }
+    }
+  }
+}
